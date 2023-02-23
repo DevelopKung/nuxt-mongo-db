@@ -2,7 +2,6 @@
 <div class="login">
   <div class="box-login flex-center">
     <v-card class="mx-2" width="600" height="500">
-      {{ url }}
       <div class="grid">
         <div class="grid-item-1 flex-center">
           <span>
@@ -43,7 +42,6 @@ export default {
     return {
       username: 'Admin',
       password: '1234',
-      url: process.env.URL_API
     }
   },
   methods: {
