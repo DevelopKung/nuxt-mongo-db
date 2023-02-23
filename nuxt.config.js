@@ -82,7 +82,7 @@ export default {
 
   proxy: {
     "/service-api/": {
-      target: process.env.URL_API,
+      target: process.env.NODE_ENV == 'development' ? "http://localhost:8001" : process.env.URL_API,
       pathRewrite: { "^/service-api/": "" }
     },
   },
