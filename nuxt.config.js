@@ -48,7 +48,8 @@ export default {
   components: true,
 
   router: {
-    base: process.env.NODE_ENV !== 'development' ? env.parsed.GITPAGES_NAME : '/'
+    base: process.env.NODE_ENV !== 'development' ? process.env.GITPAGES_NAME : '/',
+    middleware: ['auth']
   },
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
@@ -59,6 +60,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/auth',
     '@nuxtjs/axios',
     '@nuxtjs/dotenv'
   ],
@@ -73,7 +75,17 @@ export default {
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: '/', // process.env.URL,
+    proxy: true
+  },
+
+  proxy: {
+    "/service-api/": {
+      target: process.env.URL_API,
+      pathRewrite: { "^/service-api/": "" }
+    },
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -103,6 +115,36 @@ export default {
           primary: '#0D47A1'
         }
       }
+    }
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            // headers: { 'Content-Type': 'multipart/form-data' },
+            url: '/service-api/auth/token',
+            method: 'post',
+            propertyName: 'payload.token'
+          },
+          user: {
+            url: '/service-api/auth/user',
+            method: 'get',
+            propertyName: 'payload.user'
+          },
+          tokenRequired: true,
+          tokenType: 'bearer',
+          globalToken: true,
+          autoFetchUser: true
+        }
+      }
+    },
+    redirect: {
+      login: '/login',
+      logout: '/logout',
+      callback: '/login',
+      home: '/'
     }
   },
 

@@ -2,7 +2,7 @@
 <div>
   <v-container>
     <v-card>
-      test
+      <v-btn @click="$auth.logout()">logout</v-btn>
     </v-card>
   </v-container>
 </div>
