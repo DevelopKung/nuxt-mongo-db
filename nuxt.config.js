@@ -1,6 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
 const env = require('dotenv').config()
-let url_api = process.env.NODE_ENV == 'development' ? "http://localhost:8001" : process.env.URL_API + process.env.GITPAGES_NAME
+let url_api = process.env.NODE_ENV == 'development' ? "http://localhost:8001" : process.env.URL_API
 export default {
   target: 'static',
   publicRuntimeConfig: {
@@ -121,12 +121,12 @@ export default {
         endpoints: {
           login: {
             // headers: { 'Content-Type': 'multipart/form-data' },
-            url: '/api/auth/token',
+            url: process.env.GITPAGES_NAME + '/api/auth/token',
             method: 'post',
             propertyName: 'payload.token'
           },
           user: {
-            url: '/api/auth/user',
+            url: process.env.GITPAGES_NAME + '/api/auth/user',
             method: 'get',
             propertyName: 'payload.user'
           },
