@@ -1,12 +1,9 @@
 import colors from 'vuetify/es5/util/colors'
 const env = require('dotenv').config()
 
-console.log(process.env.NODE_ENV);
+let url_api = process.env.NODE_ENV == 'development' ? "http://localhost:8001" : process.env.URL_API
 export default {
   target: 'static',
-  router: {
-    base: env.parsed.GITPAGES_NAME
-  },
   publicRuntimeConfig: {
     myApp: {
       version: "1.0.0"
@@ -83,8 +80,7 @@ export default {
 
   proxy: {
     "/service-api/": {
-      target: process.env.NODE_ENV == 'development' ?
-        "http://localhost:8001" : process.env.URL_API,
+      target: url_api,
       pathRewrite: { "^/service-api/": "" }
     },
   },
@@ -158,5 +154,9 @@ export default {
         prettify: false
       }
     },
+  },
+
+  server: {
+    port: process.env.PORT || 5000
   }
 }
