@@ -79,9 +79,9 @@ export default {
   },
 
   proxy: {
-    "/service-api/": {
+    "/api/": {
       target: url_api,
-      pathRewrite: { "^/service-api/": "" }
+      pathRewrite: { "^/api/": "" }
     },
   },
 
