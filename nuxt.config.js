@@ -74,7 +74,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: '/', // process.env.URL,
-    proxy: true
+    proxy: false
   },
 
   proxy: {
@@ -121,12 +121,12 @@ export default {
         endpoints: {
           login: {
             // headers: { 'Content-Type': 'multipart/form-data' },
-            url: process.env.GITPAGES_NAME + 'api/auth/token',
+            url: url_api + '/api/auth/token',
             method: 'post',
             propertyName: 'payload.token'
           },
           user: {
-            url: process.env.GITPAGES_NAME + 'api/auth/user',
+            url: url_api + '/api/auth/user',
             method: 'get',
             propertyName: 'payload.user'
           },
