@@ -83,7 +83,8 @@ export default {
 
   proxy: {
     "/service-api/": {
-      target: process.env.NODE_ENV !== 'production' ? "http://localhost:8001" : process.env.URL_API,
+      target: process.env.NODE_ENV == 'development' ?
+        "http://localhost:8001" : process.env.URL_API,
       pathRewrite: { "^/service-api/": "" }
     },
   },
@@ -157,9 +158,5 @@ export default {
         prettify: false
       }
     },
-  },
-
-  server: {
-    port: process.env.PORT || 5000
   }
 }
