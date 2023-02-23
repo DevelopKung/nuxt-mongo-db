@@ -14,8 +14,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: 'my-app',
-    title: 'my-app',
+    titleTemplate: 'My-App',
+    title: 'My App',
     htmlAttrs: {
       lang: 'en'
     },
@@ -77,7 +77,7 @@ export default {
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
+    // customVariables: ['~/assets/variables.scss'],
     treeShake: true,
     defaultAssets: {
       font: {

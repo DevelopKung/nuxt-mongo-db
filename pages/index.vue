@@ -1,6 +1,10 @@
 <template>
 <div>
-  test !
+  <v-container>
+    <v-card>
+      test
+    </v-card>
+  </v-container>
 </div>
 </template>
 
