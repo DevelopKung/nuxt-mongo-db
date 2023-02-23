@@ -1,7 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 const env = require('dotenv').config()
-
 let url_api = process.env.NODE_ENV == 'development' ? "http://localhost:8001" : process.env.URL_API
+console.log(url_api);
 export default {
   target: 'static',
   publicRuntimeConfig: {
@@ -122,12 +122,12 @@ export default {
         endpoints: {
           login: {
             // headers: { 'Content-Type': 'multipart/form-data' },
-            url: '/service-api/auth/token',
+            url: '/api/auth/token',
             method: 'post',
             propertyName: 'payload.token'
           },
           user: {
-            url: '/service-api/auth/user',
+            url: '/api/auth/user',
             method: 'get',
             propertyName: 'payload.user'
           },
