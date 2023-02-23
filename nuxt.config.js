@@ -1,6 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 const env = require('dotenv').config()
 
+console.log(process.env.NODE_ENV);
 export default {
   target: 'static',
   router: {
@@ -82,7 +83,7 @@ export default {
 
   proxy: {
     "/service-api/": {
-      target: process.env.NODE_ENV == 'development' ? "http://localhost:8001" : process.env.URL_API,
+      target: process.env.NODE_ENV !== 'production' ? "http://localhost:8001" : process.env.URL_API,
       pathRewrite: { "^/service-api/": "" }
     },
   },
