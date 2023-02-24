@@ -73,7 +73,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: '/', // process.env.URL,
+    baseURL: process.env.NODE_ENV !== 'development' ? process.env.GITPAGES_NAME : '/',
     proxy: true
   },
 
@@ -121,12 +121,12 @@ export default {
         endpoints: {
           login: {
             // headers: { 'Content-Type': 'multipart/form-data' },
-            url: '/nuxt-mongo-db/api/auth/token',
+            url: '/api/auth/token',
             method: 'post',
             propertyName: 'payload.token'
           },
           user: {
-            url: '/nuxt-mongo-db/api/auth/user',
+            url: '/api/auth/user',
             method: 'get',
             propertyName: 'payload.user'
           },
