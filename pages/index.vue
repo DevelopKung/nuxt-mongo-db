@@ -13,7 +13,7 @@ export default {
   methods: {
     async logout() {
       await this.$auth.logout()
-      await this.$router.replace('/')
+      await this.$router.replace('/logout')
     }
   }
 }
