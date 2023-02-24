@@ -6,7 +6,7 @@
         <div class="grid-item-1 flex-center">
           <span>
             <div class="mb-4">
-              <h3>Welcome To My Pets V.2</h3>
+              <h3>Welcome To My Pets V.{{ version }}</h3>
               <small>ถ้าคุณยังไม่เป็นสมาชิก</small>
             </div>
             <div class="btn cursor">
@@ -52,6 +52,7 @@ export default {
   layout: 'not-auth',
   data() {
     return {
+      version: process.env.VERSION,
       username: 'Admin',
       password: '1234',
       mode: 'login',
