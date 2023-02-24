@@ -23,7 +23,7 @@
               <h2>ลงชื่อเข้าใช้</h2>
               <v-text-field v-model="username" hide-details label="Username" placeholder="กรุณากรอก Username"></v-text-field>
               <v-text-field v-model="password" hide-details label="Password" placeholder="กรุณากรอก Password" type="password"></v-text-field>
-              <v-btn @click="login" class="mt-16" color="#FF4081" block dark elevation="0">ตกลง</v-btn>
+              <v-btn @click="login" class="mt-16" color="primary" block dark elevation="0">ตกลง</v-btn>
             </div>
             <div v-else class="text-center pa-4" :class="animation == 2? 'opacity-1': 'opacity-0'">
               <h2>สมัครใช้งาน</h2>
@@ -34,8 +34,8 @@
               <!-- <v-text-field v-model="form.email" hide-details label="อีเมล์" placeholder="กรุณากรอก อีเมล์" type="email"></v-text-field>
               <v-text-field v-model="form.mobile" hide-details label="โทรศัพท์" placeholder="กรุณากรอก โทรศัพท์"></v-text-field> -->
 
-              <v-btn @click="registerUser(form)" class="mt-16" color="#FF4081" block dark elevation="0" :disabled="checkBtnRegister">สมัครใช้งาน</v-btn>
-              <v-btn @click="changeMode('login')" class="mt-1" color="#FF4081" block dark elevation="0" outlined>กลับ</v-btn>
+              <v-btn @click="registerUser(form)" class="mt-16" color="primary" block elevation="0" :dark="!checkBtnRegister" :disabled="checkBtnRegister">สมัครใช้งาน</v-btn>
+              <v-btn @click="changeMode('login')" class="mt-1" color="primary" block dark elevation="0" outlined>กลับ</v-btn>
             </div>
           </v-card>
         </div>
