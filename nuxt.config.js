@@ -80,7 +80,6 @@ export default {
   },
 
   proxy: {
-    // '/api/': { target: url_api, pathRewrite: { '^/api/': '' } }
     '/api': { target: url_api, changeOrigin: true, pathRewrite: { '^/api': '/' } },
   },
 
@@ -121,12 +120,12 @@ export default {
         endpoints: {
           login: {
             // headers: { 'Content-Type': 'multipart/form-data' },
-            url: url_api + '/auth/token',
+            url: '/api/auth/token',
             method: 'post',
             propertyName: 'payload.token'
           },
           user: {
-            url: url_api + '/auth/user',
+            url: '/api/auth/user',
             method: 'get',
             propertyName: 'payload.user'
           },
