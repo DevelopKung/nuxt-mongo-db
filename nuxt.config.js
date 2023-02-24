@@ -138,7 +138,7 @@ export default {
     },
     redirect: {
       login: '/login',
-      logout: false,
+      logout: '/logout',
       callback: '/login',
       home: '/'
     }
