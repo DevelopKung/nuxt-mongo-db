@@ -80,7 +80,12 @@ export default {
   },
 
   proxy: {
-    '/api/': { target: url_api, pathRewrite: { '^/api/': '' } }
+    // '/api/': { target: url_api, pathRewrite: { '^/api/': '' } }
+    '/api': {
+      target: url_api,
+      changeOrigin: true,
+      pathRewrite: { '^/api': '/' }
+    },
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
