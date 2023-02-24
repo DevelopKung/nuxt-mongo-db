@@ -76,16 +76,12 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: '/',
-    proxy: false
+    proxy: true
   },
 
   proxy: {
     // '/api/': { target: url_api, pathRewrite: { '^/api/': '' } }
-    '/api': {
-      target: url_api,
-      changeOrigin: true,
-      pathRewrite: { '^/api': '/' }
-    },
+    '/api': { target: url_api, changeOrigin: true, pathRewrite: { '^/api': '/' } },
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
