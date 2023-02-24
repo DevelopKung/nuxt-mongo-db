@@ -23,7 +23,7 @@
               <h2>ลงชื่อเข้าใช้</h2>
               <v-text-field v-model="username" hide-details label="Username" placeholder="กรุณากรอก Username"></v-text-field>
               <v-text-field v-model="password" hide-details label="Password" placeholder="กรุณากรอก Password" type="password"></v-text-field>
-              <v-btn @click="login" class="mt-16" color="primary" block dark elevation="0">ตกลง</v-btn>
+              <v-btn @click="login" :loading="loading" class="mt-16" color="primary" block dark elevation="0">ตกลง</v-btn>
             </div>
             <div v-else class="text-center pa-4" :class="animation == 2? 'opacity-1': 'opacity-0'">
               <h2>สมัครใช้งาน</h2>
@@ -57,7 +57,8 @@ export default {
       password: '1234',
       mode: 'login',
       animation: 2,
-      form: {}
+      form: {},
+      loading: false
     }
   },
   computed: {
@@ -73,6 +74,7 @@ export default {
       registerMember: 'service/registerMember'
     }),
     async login(e) {
+      this.loading = true
       e.preventDefault();
 
       const payload = {
@@ -90,11 +92,14 @@ export default {
             title: 'รหัสผ่านไม่ถูกต้อง',
           })
           await this.$auth.logout()
+          this.loading = false
           return
         }
         this.$router.push('/');
+        this.loading = false
       } catch (e) {
         this.$router.push('/login');
+        this.loading = false
       }
     },
     async registerUser(form){
