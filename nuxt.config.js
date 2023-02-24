@@ -47,7 +47,7 @@ export default {
   components: true,
 
   router: {
-    base: '/',
+    base: base_url,
     middleware: ['auth']
   },
 
@@ -75,7 +75,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: '/',
+    baseURL: base_url,
     proxy: true
   },
 
