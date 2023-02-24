@@ -120,6 +120,7 @@ export default {
         endpoints: {
           login: {
             // headers: { 'Content-Type': 'multipart/form-data' },
+            headers: { 'Access-Control-Allow-Methods': 'GET, POST' },
             url: '/api/auth/token',
             method: 'post',
             propertyName: 'payload.token'
