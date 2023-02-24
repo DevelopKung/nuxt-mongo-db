@@ -47,7 +47,7 @@ export default {
   components: true,
 
   router: {
-    base: base_url,
+    base: '/',
     middleware: ['auth']
   },
 
@@ -75,15 +75,12 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: base_url,
+    baseURL: '/',
     proxy: true
   },
 
   proxy: {
-    "/api/": {
-      target: url_api,
-      pathRewrite: { "^/api/": "" }
-    },
+    '/api/': { target: url_api, pathRewrite: { '^/api/': '' } }
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

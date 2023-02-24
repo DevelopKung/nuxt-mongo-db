@@ -21,7 +21,6 @@
           <v-card elevation="0" width="90%">
             <div class="text-center pa-4">
               <h2>ลงชื่อเข้าใช้</h2>
-              {{ url }}
               <v-text-field v-model="username" hide-details label="Username" placeholder="กรุณากรอก Username"></v-text-field>
               <v-text-field v-model="password" hide-details label="Password" placeholder="กรุณากรอก Password" type="password"></v-text-field>
               <v-btn @click="login" class="mt-16" color="primary" block dark elevation="0">ตกลง</v-btn>
@@ -43,7 +42,6 @@ export default {
     return {
       username: 'Admin',
       password: '1234',
-      url: process.env.GITPAGES_NAME+ process.env.URL_API
     }
   },
   methods: {
