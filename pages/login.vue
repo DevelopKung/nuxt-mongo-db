@@ -6,7 +6,7 @@
         <div class="grid-item-1 flex-center">
           <span>
             <div class="mb-4">
-              <h3>Welcome To My Pets</h3>
+              <h3>Welcome To My Pets V.1</h3>
               <small>ถ้าคุณยังไม่เป็นสมาชิก</small>
             </div>
             <div class="btn cursor">
