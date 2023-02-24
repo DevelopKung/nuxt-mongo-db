@@ -73,7 +73,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: process.env.NODE_ENV !== 'development' ? process.env.GITPAGES_NAME : '/',
+    baseURL: '/',
     proxy: true
   },
 
