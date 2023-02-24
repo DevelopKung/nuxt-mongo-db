@@ -10,20 +10,32 @@
               <small>ถ้าคุณยังไม่เป็นสมาชิก</small>
             </div>
             <div class="btn cursor">
-              <v-btn class="btn--icon"  width="120" height="120" outlined fab color="white">
+              <v-btn class="btn--icon" @click="changeMode('register')" width="120" height="120" outlined fab color="white">
                 <v-icon size="100">fas fa-paw</v-icon>
               </v-btn>
-              <h3 class="text-btn">คลิก!</h3>
+              <h3 class="text-btn" @click="changeMode('register')">คลิก!</h3>
             </div>
           </span>
         </div>
         <div class="grid-item-2 flex-center">
           <v-card elevation="0" width="90%">
-            <div class="text-center pa-4">
+            <div v-if="mode=='login'" class="text-center pa-4" :class="animation == 2? 'opacity-1': 'opacity-0'">
               <h2>ลงชื่อเข้าใช้</h2>
               <v-text-field v-model="username" hide-details label="Username" placeholder="กรุณากรอก Username"></v-text-field>
               <v-text-field v-model="password" hide-details label="Password" placeholder="กรุณากรอก Password" type="password"></v-text-field>
-              <v-btn @click="login" class="mt-16" color="primary" block dark elevation="0">ตกลง</v-btn>
+              <v-btn @click="login" class="mt-16" color="#FF4081" block dark elevation="0">ตกลง</v-btn>
+            </div>
+            <div v-else class="text-center pa-4" :class="animation == 2? 'opacity-1': 'opacity-0'">
+              <h2>สมัครใช้งาน</h2>
+              <v-text-field v-model="form.firstname" hide-details label="ชื่อ" placeholder="กรุณากรอก ชื่อ"></v-text-field>
+              <v-text-field v-model="form.lastname" hide-details label="นามสกุล" placeholder="กรุณากรอก นามสกุล"></v-text-field>
+              <v-text-field v-model="form.username" hide-details label="Username" placeholder="กรุณากรอก Username"></v-text-field>
+              <v-text-field v-model="form.password" hide-details label="Password" placeholder="กรุณากรอก Password" type="password"></v-text-field>
+              <!-- <v-text-field v-model="form.email" hide-details label="อีเมล์" placeholder="กรุณากรอก อีเมล์" type="email"></v-text-field>
+              <v-text-field v-model="form.mobile" hide-details label="โทรศัพท์" placeholder="กรุณากรอก โทรศัพท์"></v-text-field> -->
+
+              <v-btn @click="registerUser(form)" class="mt-16" color="#FF4081" block dark elevation="0" :disabled="checkBtnRegister">สมัครใช้งาน</v-btn>
+              <v-btn @click="changeMode('login')" class="mt-1" color="#FF4081" block dark elevation="0" outlined>กลับ</v-btn>
             </div>
           </v-card>
         </div>
@@ -42,9 +54,23 @@ export default {
     return {
       username: 'Admin',
       password: '1234',
+      mode: 'login',
+      animation: 2,
+      form: {}
+    }
+  },
+  computed: {
+    checkBtnRegister(){
+      if (this.form.firstname&&this.form.lastname&&this.form.username&&this.form.password) {
+        return false
+      }
+      return true
     }
   },
   methods: {
+    ...mapActions({
+      registerMember: 'service/registerMember'
+    }),
     async login(e) {
       e.preventDefault();
 
@@ -69,7 +95,44 @@ export default {
       } catch (e) {
         this.$router.push('/login');
       }
-    }
+    },
+    async registerUser(form){
+      await this.registerMember(form).then((result) => {
+        if (result.status) {
+          Swal.fire({
+            icon: 'success',
+            title: 'สมัครเรียบร้อย',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          this.changeMode('login')
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: result.message
+          })
+        }
+      }).catch((err) => {
+        console.log(err);
+      });
+    },
+    changeMode(text) {
+      if (this.mode == text) return;
+      this.animation = 1
+      setTimeout(() => {
+        this.animation = 2
+        this.mode = text
+        if (this.mode == 'login') this.clearForm();
+        else this.clearLogin();
+      }, 100);
+    },
+    clearForm() {
+      this.form = {}
+    },
+    clearLogin() {
+      this.username = null
+      this.password = null
+    },
   }
 }
 </script>

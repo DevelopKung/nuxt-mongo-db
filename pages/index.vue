@@ -2,7 +2,7 @@
 <div>
   <v-container>
     <v-card>
-      <v-btn @click="$auth.logout()">logout</v-btn>
+      <v-btn @click="logout">logout</v-btn>
     </v-card>
   </v-container>
 </div>
@@ -10,7 +10,12 @@
 
 <script>
 export default {
-
+  methods: {
+    async logout() {
+      await this.$auth.logout()
+      await this.$router.replace('/')
+    }
+  }
 }
 </script>
 
