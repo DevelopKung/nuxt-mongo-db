@@ -121,12 +121,12 @@ export default {
         endpoints: {
           login: {
             // headers: { 'Content-Type': 'multipart/form-data' },
-            url: '/api/auth/token',
+            url: '/nuxt-mongo-db/api/auth/token',
             method: 'post',
             propertyName: 'payload.token'
           },
           user: {
-            url: '/api/auth/user',
+            url: '/nuxt-mongo-db/api/auth/user',
             method: 'get',
             propertyName: 'payload.user'
           },
