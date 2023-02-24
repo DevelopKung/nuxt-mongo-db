@@ -1,6 +1,8 @@
 import colors from 'vuetify/es5/util/colors'
 const env = require('dotenv').config()
 let url_api = process.env.NODE_ENV == 'development' ? "http://localhost:8001" : process.env.URL_API;
+let base_url = process.env.NODE_ENV == 'development' ? '/' : process.env.GITPAGES_NAME
+
 export default {
   target: 'static',
   publicRuntimeConfig: {
@@ -45,7 +47,7 @@ export default {
   components: true,
 
   router: {
-    base: process.env.NODE_ENV !== 'development' ? process.env.GITPAGES_NAME : '/',
+    base: base_url,
     middleware: ['auth']
   },
 
@@ -73,7 +75,7 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: '/',
+    baseURL: base_url,
     proxy: true
   },
 
