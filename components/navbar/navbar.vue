@@ -27,7 +27,7 @@
         </v-avatar>
       </v-row>
 
-      <div class="text-center"> <h2>{{ $auth.user.username }}</h2> </div>
+      <div class="text-center"> <h2>{{ $auth.user.firstname }}</h2> </div>
 
       <v-card-subtitle class="pb-0 caption">My Pets</v-card-subtitle>
       <v-divider></v-divider>
