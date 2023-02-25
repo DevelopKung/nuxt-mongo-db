@@ -12,22 +12,22 @@
       <v-col class="pa-auto" cols="12" sm="7" md="8">
         <v-row>
           <v-col cols="6">
-            <v-text-field label="Regular" dense v-model="form_pet.pet_name" readonly hide-details></v-text-field>
+            <v-text-field label="ชื่อ" dense v-model="form_pet.pet_name" readonly hide-details></v-text-field>
           </v-col>
           <v-col cols="6">
-            <v-text-field label="Regular" dense v-model="form_pet.birthday" readonly hide-details></v-text-field>
+            <v-text-field label="วันเกิด" dense v-model="form_pet.birthday" readonly hide-details></v-text-field>
           </v-col>
           <v-col cols="6">
-            <v-text-field label="Regular" dense v-model="form_pet.age" readonly hide-details></v-text-field>
+            <v-text-field label="อายุ" dense v-model="form_pet.age" readonly hide-details></v-text-field>
           </v-col>
           <v-col cols="6">
-            <v-text-field label="Regular" dense v-model="form_pet.type_pet" readonly hide-details></v-text-field>
+            <v-text-field label="ประเภท" dense v-model="form_pet.type_pet" readonly hide-details></v-text-field>
           </v-col>
           <v-col cols="6">
-            <v-text-field label="Regular" dense v-model="form_pet.sex_pet" readonly hide-details></v-text-field>
+            <v-text-field label="เพศ" dense v-model="form_pet.sex_pet" readonly hide-details></v-text-field>
           </v-col>
           <v-col cols="6">
-            <v-text-field label="Regular" dense v-model="form_pet.species" readonly hide-details></v-text-field>
+            <v-text-field label="สายพันธุ์" dense v-model="form_pet.species" readonly hide-details></v-text-field>
           </v-col>
         </v-row>
       </v-col>
