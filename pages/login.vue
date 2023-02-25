@@ -49,7 +49,7 @@
 import Swal from 'sweetalert2'
 import { mapActions, mapGetters } from 'vuex'
 export default {
-  layout: 'not-auth',
+  layout: 'blank',
   data() {
     return {
       version: process.env.VERSION,

@@ -1,28 +1,19 @@
 <template>
 <div>
-  <Navbar title="index" />
-  <User :user="user" />
-  <v-container v-if="!loading">
-    <v-row>
-      <v-col>
-        <MyPets />
-      </v-col>
-      <v-col>
-        <MyPets />
-      </v-col>
-    </v-row>
+  <v-container >
+    <BpxPost />
+    <BpxPost />
+    <BpxPost />
   </v-container>
-  <!-- <Loader v-else :loading="loading" /> -->
+  <Loader v-if="loading" :loading="loading" />
 </div>
 </template>
 
 <script>
-import User from "@/components/profile/user.vue";
-import MyPets from "@/components/profile/my-pets.vue";
+import BpxPost from "@/components/box/box-post";
 export default {
   components: {
-    User,
-    MyPets
+    BpxPost
   },
   data() {
     return {
