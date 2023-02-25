@@ -1,10 +1,10 @@
 <template>
 <div>
   <v-card class="mx-auto overflow-hidden nav" min-height="100vh">
-    <v-app-bar color="primary" dense dark elevation="0">
+    <v-app-bar color="primary" dense dark elevation="0" fixed>
       <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
 
-      <v-toolbar-title v-if="title">{{ title }}</v-toolbar-title>
+      <v-toolbar-title class="cursor" v-if="title" @click="$router.push('/')">{{ title }}</v-toolbar-title>
       <v-spacer></v-spacer>
 
       <!-- <v-btn icon>
@@ -77,7 +77,7 @@ export default {
 </script>
 
 <style scoped>
-.nav {
-  background: #0000000d;
-}
+.nav { background: #0000000d; }
+
+.cursor { cursor: pointer; }
 </style>

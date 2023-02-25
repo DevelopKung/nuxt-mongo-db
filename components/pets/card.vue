@@ -1,15 +1,15 @@
 <template>
 <div>
-  <v-card class="pa-4" outlined>
+  <v-card class="pa-4 card-pet" outlined :style="BgImage(form_pet.profile)">
     <v-row align="center">
-      <v-col cols="12" sm="5" md="4">
+      <v-col cols="12" sm="5" md="5">
         <v-row justify="center" align="center">
           <v-avatar size="200" class="my-5 avatar mx-auto">
             <v-img :src="form_pet.profile"></v-img>
           </v-avatar>
         </v-row>
       </v-col>
-      <v-col class="pa-auto" cols="12" sm="7" md="8">
+      <v-col class="pa-auto" cols="12" sm="7" md="7">
         <v-row>
           <v-col cols="6">
             <v-text-field label="ชื่อสัตว์เลี้ยง" dense v-model="form_pet.pet_name" readonly hide-details></v-text-field>
@@ -38,23 +38,49 @@
 
 <script>
 export default {
-data() {
-  return {
-    form_pet: {
-      profile: 'https://images.livemint.com/img/2022/08/01/1600x900/Cat-andriyko-podilnyk-RCfi7vgJjUY-unsplash_1659328989095_1659328998370_1659328998370.jpg',
-      pet_name: 'cat',
-      birthday: new Date('2023-05-01').toLocaleDateString(),
-      age: 2,
-      type_pet: 'แมว',
-      sex_pet: 'ผู้',
-      species: 'เปอร์เซีย',
-      status: true
+  data() {
+    return {
+      form_pet: {
+        profile: 'https://images.livemint.com/img/2022/08/01/1600x900/Cat-andriyko-podilnyk-RCfi7vgJjUY-unsplash_1659328989095_1659328998370_1659328998370.jpg',
+        pet_name: 'cat',
+        birthday: new Date('2023-05-01').toLocaleDateString(),
+        age: 2,
+        type_pet: 'แมว',
+        sex_pet: 'ผู้',
+        species: 'เปอร์เซีย',
+        status: true
+      }
     }
-  }
-},
+  },
+  methods: {
+    BgImage(image) {
+      return `
+        background: url(${image})  top no-repeat;
+        width: 100%;
+        background-size: cover;
+        position: relative;
+      `;
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-.avatar { border: 2px solid #ddd; }
+.avatar {
+  border: 2px solid #ddd;
+}
+
+.card-pet {
+  
+
+  &:before {
+    content: "";
+    background: #ffffffe5;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+}
 </style>

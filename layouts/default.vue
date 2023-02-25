@@ -2,7 +2,9 @@
 <div>
   <v-app>
     <Navbar :title="'My Pets'">
+     <div class="mt-12">
       <Nuxt />
+     </div>
     </Navbar>
   </v-app>
 </div>

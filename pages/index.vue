@@ -1,10 +1,18 @@
 <template>
 <div>
   <v-container >
-    <BoxStory/>
-    <BoxPost />
-    <BoxPost />
-    <BoxPost />
+    <v-row>
+      <v-col class="d-none d-md-block">
+        <v-card class="pa-4" min-height="500"></v-card>
+      </v-col>
+      <v-col cols="12" sm="12" md="6">
+        <BoxStory/>
+        <BoxPost v-for="(box,i) in 10" :key="i" />
+      </v-col>
+      <v-col class="d-none d-md-block">
+        <v-card class="pa-4" min-height="500"></v-card>
+      </v-col>
+    </v-row>
   </v-container>
   <Loader v-if="loading" :loading="loading" />
 </div>
