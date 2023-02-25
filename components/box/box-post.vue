@@ -17,7 +17,7 @@
     </div>
 
     <v-card elevation="0">
-      <v-img max-height="400" src="https://cdn.vuetifyjs.com/images/john.jpg"></v-img>
+      <v-img max-height="400" src="https://images.livemint.com/img/2022/08/01/1600x900/Cat-andriyko-podilnyk-RCfi7vgJjUY-unsplash_1659328989095_1659328998370_1659328998370.jpg"></v-img>
     </v-card>
  
   </v-card>

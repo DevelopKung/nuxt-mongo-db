@@ -1,19 +1,22 @@
 <template>
 <div>
   <v-container >
-    <BpxPost />
-    <BpxPost />
-    <BpxPost />
+    <BoxStory/>
+    <BoxPost />
+    <BoxPost />
+    <BoxPost />
   </v-container>
   <Loader v-if="loading" :loading="loading" />
 </div>
 </template>
 
 <script>
-import BpxPost from "@/components/box/box-post";
+import BoxPost from "@/components/box/box-post";
+import BoxStory from '../components/box/box-story.vue';
 export default {
   components: {
-    BpxPost
+    BoxPost,
+    BoxStory,
   },
   data() {
     return {

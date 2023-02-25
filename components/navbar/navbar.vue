@@ -72,6 +72,6 @@ export default {
 
 <style scoped>
 .nav {
-  background: #00000029;
+  background: #0000000d;
 }
 </style>
