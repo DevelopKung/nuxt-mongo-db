@@ -20,6 +20,19 @@
       <v-img max-height="400" src="https://images.livemint.com/img/2022/08/01/1600x900/Cat-andriyko-podilnyk-RCfi7vgJjUY-unsplash_1659328989095_1659328998370_1659328998370.jpg"></v-img>
     </v-card>
  
+    <v-row class="my-2 px-2">
+      <v-btn icon>
+        <v-icon>mdi-heart</v-icon> {{ 2 }}
+      </v-btn>
+      <v-btn class="mx-3" icon>
+        <v-icon>mdi-thumb-up-outline</v-icon> {{ 2 }}
+      </v-btn>
+      <v-spacer></v-spacer>
+      <v-btn icon>
+        {{ 2 }} <v-icon>mdi-comment-text-outline</v-icon>
+      </v-btn>
+    </v-row>
+
   </v-card>
 </div>
 </template>

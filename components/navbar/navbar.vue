@@ -7,13 +7,13 @@
       <v-toolbar-title v-if="title">{{ title }}</v-toolbar-title>
       <v-spacer></v-spacer>
 
-      <v-btn icon>
+      <!-- <v-btn icon>
         <v-icon>mdi-heart</v-icon>
       </v-btn>
 
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
-      </v-btn>
+      </v-btn> -->
 
       <v-btn icon @click="logout">
         <v-icon>fas fa-sign-out-alt</v-icon>
@@ -21,21 +21,27 @@
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" absolute temporary>
+      <v-row justify="center" class="ma-auto">
+        <v-avatar size="200" class="my-5">
+          <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John">
+        </v-avatar>
+      </v-row>
+
+      <div class="text-center"> <h2>{{ $auth.user.username }}</h2> </div>
+
+      <v-card-subtitle class="pb-0 caption">My Pets</v-card-subtitle>
+      <v-divider></v-divider>
+
       <v-list nav dense>
-        <v-list-item-group v-model="group" active-class="deep-purple--text text--accent-4">
-          <v-list-item>
+        <v-list-item-group v-model="group" active-class="primary--text text--accent-4">
+
+          <v-list-item @click="$router.push('/pets/1')">
             <v-list-item-icon>
-              <v-icon>mdi-home</v-icon>
+              <v-icon>mdi-paw</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>Home</v-list-item-title>
+            <v-list-item-title>My Pets</v-list-item-title>
           </v-list-item>
 
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-account</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Account</v-list-item-title>
-          </v-list-item>
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>

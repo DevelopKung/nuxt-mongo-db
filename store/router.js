@@ -3,4 +3,11 @@ export default {
   service: {
     register: url + '/auth/register',
   },
+  users: {
+    list: url + '/user',
+    info: url + '/user/{:id}',
+    create: url + '/user',
+    update: url + '/user/{:id}',
+    delete: url + '/user/{:id}',
+  },
 }
