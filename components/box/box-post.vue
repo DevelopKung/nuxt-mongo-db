@@ -4,12 +4,12 @@
     <v-row align="end">
       <v-col cols="auto">
         <v-avatar>
-          <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John">
+          <v-img :src="image"></v-img>
         </v-avatar>
       </v-col>
       <v-col>
         <div>Username</div>
-        <small>Username</small>
+        <small>My pets</small>
       </v-col>
     </v-row>
     <div class="my-2">
@@ -17,7 +17,7 @@
     </div>
 
     <v-card elevation="0">
-      <v-img max-height="400" src="https://images.livemint.com/img/2022/08/01/1600x900/Cat-andriyko-podilnyk-RCfi7vgJjUY-unsplash_1659328989095_1659328998370_1659328998370.jpg"></v-img>
+      <v-img max-height="400" :src="image"></v-img>
     </v-card>
  
     <v-row class="my-2 px-2">
@@ -39,7 +39,11 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      image: 'https://images.livemint.com/img/2022/08/01/1600x900/Cat-andriyko-podilnyk-RCfi7vgJjUY-unsplash_1659328989095_1659328998370_1659328998370.jpg'
+    }
+  },
 }
 </script>
 
