@@ -2,6 +2,7 @@ const url = process.env.NODE_ENV == 'development' ? process.env.URL_API_DEV : pr
 export default {
   service: {
     register: url + '/auth/register',
+    option_pets: url + '/service/option-pets',
   },
   users: {
     list: url + '/user',
@@ -10,4 +11,18 @@ export default {
     update: url + '/user/{:id}',
     delete: url + '/user/{:id}',
   },
+  pets: {
+    list: url + '/pet/{:user_id}',
+    info: url + '/pet/{:user_id}/{:id}',
+    create: url + '/pet',
+    update: url + '/pet',
+    delete: url + '/pet/{:id}',
+  },
+  HCP:{
+    list: url + '/health-check-pet/{:pet_id}',
+    info: url + '/health-check-pet/{:pet_id}/{:id}',
+    create: url + '/health-check-pet',
+    update: url + '/health-check-pet',
+    delete: url + '/health-check-pet/{:id}',
+  }
 }
