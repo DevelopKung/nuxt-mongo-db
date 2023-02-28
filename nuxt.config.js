@@ -119,12 +119,12 @@ export default {
         endpoints: {
           login: {
             // headers: { 'Content-Type': 'multipart/form-data' },
-            url: setAuthUrl + 'auth/token',
+            url: url_api + '/auth/token',
             method: 'post',
             propertyName: 'payload.token'
           },
           user: {
-            url: setAuthUrl + 'auth/user',
+            url: url_api + '/auth/user',
             method: 'get',
             propertyName: 'payload.user'
           },
