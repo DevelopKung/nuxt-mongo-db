@@ -2,7 +2,6 @@ import colors from 'vuetify/es5/util/colors'
 const env = require('dotenv').config()
 let url_api = process.env.NODE_ENV == 'development' ? process.env.URL_API_DEV : process.env.URL_API;
 let base_url = process.env.NODE_ENV == 'development' ? '/' : process.env.GITPAGES_NAME
-console.log(url_api);
 
 export default {
   publicRuntimeConfig: {
