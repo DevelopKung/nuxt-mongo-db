@@ -1,5 +1,7 @@
 import routeAPI from './router'
-
+// res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Methods", "*");
+//   res.header("Access-Control-Allow-Headers", "*");
 export const state = () => ({
   lists: [],
   loading: false
