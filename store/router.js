@@ -2,8 +2,8 @@ const url = process.env.NODE_ENV == 'development' ? process.env.URL_API_DEV : pr
 let base_url = process.env.NODE_ENV == 'development' ? '/api/' : process.env.GITPAGES_NAME + 'api/'
 export default {
   service: {
-    register: base_url + 'auth/register',
-    option_pets: base_url + 'service/option-pets',
+    register: url + 'auth/register',
+    option_pets: url + 'service/option-pets',
   },
   users: {
     list: url + 'user',
