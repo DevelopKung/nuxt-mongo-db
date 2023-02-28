@@ -2,9 +2,9 @@ import colors from 'vuetify/es5/util/colors'
 const env = require('dotenv').config()
 let url_api = process.env.NODE_ENV == 'development' ? process.env.URL_API_DEV : process.env.URL_API;
 let base_url = process.env.NODE_ENV == 'development' ? '/' : process.env.GITPAGES_NAME
+console.log(url_api);
 
 export default {
-  target: 'static',
   publicRuntimeConfig: {
     myApp: {
       version: "1.0.0"
@@ -76,7 +76,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: base_url,
-    proxy: false
+    proxy: true
   },
 
   proxy: {
@@ -120,12 +120,12 @@ export default {
         endpoints: {
           login: {
             // headers: { 'Content-Type': 'multipart/form-data' },
-            url: url_api + '/auth/token',
+            url: '/api/auth/token',
             method: 'post',
             propertyName: 'payload.token'
           },
           user: {
-            url: url_api + '/auth/user',
+            url: '/api/auth/user',
             method: 'get',
             propertyName: 'payload.user'
           },

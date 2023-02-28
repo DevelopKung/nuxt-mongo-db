@@ -58,7 +58,7 @@
 
           <v-row>
             <v-spacer></v-spacer>
-            <v-btn class="mx-1" outlined color="primary" small @click="setInfo(item)">ลบ</v-btn>
+            <v-btn class="mx-1" outlined color="primary" small @click="deleteDate(item)">ลบ</v-btn>
             <v-btn class="mx-1" depressed color="primary" small @click="setInfo(item)">แก้ไข</v-btn>
           </v-row>
         </div>

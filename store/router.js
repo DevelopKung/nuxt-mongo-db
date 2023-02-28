@@ -1,28 +1,28 @@
 const url = process.env.NODE_ENV == 'development' ? process.env.URL_API_DEV : process.env.URL_API;
 export default {
   service: {
-    register: url + '/auth/register',
-    option_pets: url + '/service/option-pets',
+    register: '/api/auth/register',
+    option_pets: '/api/service/option-pets',
   },
   users: {
-    list: url + '/user',
-    info: url + '/user/{:id}',
-    create: url + '/user',
-    update: url + '/user/{:id}',
-    delete: url + '/user/{:id}',
+    list: '/api/user',
+    info: '/api/user/{:id}',
+    create: '/api/user',
+    update: '/api/user/{:id}',
+    delete: '/api/user/{:id}',
   },
   pets: {
-    list: url + '/pet/{:user_id}',
-    info: url + '/pet/{:user_id}/{:id}',
-    create: url + '/pet',
-    update: url + '/pet',
-    delete: url + '/pet/{:id}',
+    list: '/api/pet/{:user_id}',
+    info: '/api/pet/{:user_id}/{:id}',
+    create: '/api/pet',
+    update: '/api/pet',
+    delete: '/api/pet/{:id}',
   },
   HCP:{
-    list: url + '/health-check-pet/{:pet_id}',
-    info: url + '/health-check-pet/{:pet_id}/{:id}',
-    create: url + '/health-check-pet',
-    update: url + '/health-check-pet',
-    delete: url + '/health-check-pet/{:id}',
+    list: '/api/health-check-pet/{:pet_id}',
+    info: '/api/health-check-pet/{:pet_id}/{:id}',
+    create: '/api/health-check-pet',
+    update: '/api/health-check-pet',
+    delete: '/api/health-check-pet/{:id}',
   }
 }
